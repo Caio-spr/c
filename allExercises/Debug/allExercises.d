@@ -1,0 +1,1 @@
+allExercises.o: ../allExercises.c

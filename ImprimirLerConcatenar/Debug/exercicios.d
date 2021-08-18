@@ -1,0 +1,1 @@
+exercicios.o: ../exercicios.c

@@ -1,0 +1,1 @@
+consoleGuessingGame.o: ../consoleGuessingGame.c
