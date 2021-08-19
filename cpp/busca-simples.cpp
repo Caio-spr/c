@@ -4,24 +4,32 @@
 #include <string>
 #include <new>
 #include <iostream>
-
+#define TAM 1024
 
 using namespace std;
 
-int buscaSimples(int x[],int numProcurado);
+int buscaSimples(int x[],int input);
 int incluirNoBanco(int x[], char y);
+void imprime_vetor(int x);
 
 int main () {
-    int tamMax = 1024;
-    int banco[tamMax]={1,5,3,2,6,4,10,9};
+    int qni;
+    int banco[TAM]={1,5,3,2,6,4,10,9};
     char yn;
     cout << "você quer incluir algo no Banco  y/n";
     cin >> yn;
-    int incluir= incluirNoBanco(banco[],yn);
-    
-    int numProcurado;
+    cout << "quantos números você quer incluir?";
+    cin >> qni;
+    while (yn = 'y'){
+        incluirNoBanco(banco);
+        cout <<"quer incluir mais?";
+        cin >> yn;
+        
+    }
 
-    printf( "qual número você quer achar?\n");
+
+    int numProcurado;
+    cout << "qual número você quer achar?" << endl;
     cin >> numProcurado;
     
     int position = buscaSimples(banco, numProcurado);
@@ -53,12 +61,6 @@ int buscaSimples(int x[],int numProcurado){
     }
 }
 
-int incluirNoBanco(int x[],char y){
-
-
-    if(y=='y'){
-        cin >> ;
-    }
-
-
+int incluirNoBanco(int x[]){
+    
 }
