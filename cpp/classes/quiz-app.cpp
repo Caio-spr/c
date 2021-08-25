@@ -8,14 +8,14 @@ using namespace std;
 
 // structure of a question
 
-struct answer{
+struct Answer{
     string answer;
-    
+    bool correct;
 };
 
 struct Question{
     string question;
-    string answers[4];
+    Answer answers[4];
     int correct;
 };
 
@@ -23,23 +23,35 @@ struct Question{
 void displayQuestion(Question x);
 
 int main (){
-    int input1, input2, points;
+    int input, points = 0;
     Question q1;
-    q1.question = "How many hands do humans have?";
-    q1.answers[0] = "1";//1
-    q1.answers[1] = "2";//2
-    q1.answers[2] = "4";//3
-    q1.answers[3] = "I dont know ok??";//4
-    q1.correct = 2;
+    q1.question = "How many Links are there in BOTW";
+    q1.answers[0].answer  = "1";
+    q1.answers[0].correct = true;
+
+    q1.answers[1].answer  = "2";
+    q1.answers[1].correct = false;
+
+    q1.answers[2].answer  = "4";
+    q1.answers[2].correct = false;
+
+    q1.answers[3].answer  = "I dont know m8, i dont care";
+    q1.answers[3].correct = false;
+
 
     Question q2;
     q2.question = "how long is a day?";
-    q2.answers[0] = "48 hours";//1
-    q2.answers[1] = "72 hours";//2
-    q2.answers[2] = "24 hours";//3
-    q2.answers[3] = "1 week";//4
-    q2.correct = 3;
-    
+    q2.answers[0].answer  = "12 hours";
+    q2.answers[0].correct = false;
+
+    q2.answers[1].answer  = "24 hours";
+    q2.answers[1].correct = true;
+
+    q2.answers[2].answer  = "48 hours";
+    q2.answers[2].correct = false;
+
+    q2.answers[3].answer  = "72 hours";
+    q2.answers[3].correct = false;
     
     
     
@@ -53,22 +65,22 @@ int main (){
     
 
     //Question 1;
-    displayQuestion(q1);
-    cin >> input1;
-    
-    if (input1 == q1.correct){
+    displayQuestion(q1);   
+    cout << "choose 1-4" << endl;
+    cin >> input;
+
+    if (q1.answers[input-1].correct == true){
         points+=2;
     }
     
     //Question 2;
     displayQuestion(q2);
-    cout << "choose 1-4";
-    cin >> input2;
-
-    if(input2 == q2.correct){
+    cout << "choose 1-4" << endl;
+    cin >> input;
+    
+    if (q2.answers[input-1].correct == true){
         points+=2;
     }
-
 
 
     //total points
@@ -82,6 +94,6 @@ int main (){
 void displayQuestion(Question x){
     cout << x.question << endl;
     for (int i = 0; i < 4;i++){ // using for to print the array
-        cout << i+1 <<". " << x.answers[i] << endl;
-    }
+        cout << i+1 << ". " << x.answers[i].answer << endl;
+    }    
 }
