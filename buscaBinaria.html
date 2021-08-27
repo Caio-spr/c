@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<script> 
+
+
+function buscaBinaria(x, numProcurado){
+    var comeco = 0;
+    var fim = 20;
+    var meio = (int) (fim+comeco)/2;
+    
+    while (numProcurado != banco[meio] && comeco != meio){
+        if(numProcurado < banco[meio]){
+            fim = meio;
+        }else if(numProcurado > banco[meio]){
+            comeco = meio;
+        }
+        meio = Math.round((fim+comeco)/2); 
+    }
+    if(comeco == meio && banco[meio] != numProcurado){
+        return -1;
+    }
+    return meio;
+}
+
+var x = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+var procurado = parseInt(prompt("que número você quer procurar?"));
+var ret = buscaBinaria(x,procurado);
+
+if(ret == -1){
+    document.write(procurado + " não foi encontrado");
+}else{
+    document.write(procurado + "foi achado em "+ret);
+}
+
+</script>
